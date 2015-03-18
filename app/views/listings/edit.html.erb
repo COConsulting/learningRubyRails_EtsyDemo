@@ -1,0 +1,8 @@
+<h1>Editing Listing</h1>
+
+<%= image_tag @listing.image.url(:medium) %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @listing, class: "btn btn-link" %> |
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
