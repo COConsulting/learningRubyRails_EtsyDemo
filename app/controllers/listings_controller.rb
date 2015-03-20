@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
 
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to session.delete(:return_to), notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to session.delete(:return_to), notice: 'Listing was successfully deleted.' }
       format.json { head :no_content }
     end
   end
