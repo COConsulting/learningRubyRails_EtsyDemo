@@ -1,12 +1,16 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
+
+  def seller
+    @listings = Listing.where(user: current_user).order("created_at ASC")
+  end
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order("created_at DESC")
   end
 
   # GET /listings/1
@@ -57,15 +61,18 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
+    session[:return_to] ||= request.referer
+
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to session.delete(:return_to), notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_listing
       @listing = Listing.find(params[:id])
     end
@@ -76,8 +83,10 @@ class ListingsController < ApplicationController
     end
 
     def check_user
-      if current_user != @listing.user_id
-        redirect_to root_url, alert: "Sorry, this listing belongs to someone else."
+      session[:return_to] ||= request.referer
+
+      if current_user != @listing.user
+        redirect_to session.delete(:return_to), alert: "Sorry, this listing belongs to someone else."
       end
     end
 end
