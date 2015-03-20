@@ -66,3 +66,11 @@ body {
 	margin-top:50px;
 	margin-bottom:50px;
 }
+
+.jumbotron {
+	background-image: url('jumbotron.jpg');
+	h1, h2 {
+		font-family: guardian-egyptt, georgia, serif;
+		color:#F5F5F1;
+	}
+}
