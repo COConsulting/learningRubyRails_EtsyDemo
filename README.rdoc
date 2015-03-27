@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created during a online course taken at uDemy.com
 
-Things you may want to cover:
+https://www.udemy.com/the-startups-guide-to-web-development-with-ruby-on-rails/?dtcode=oQNHq302Bq1n#/
 
-* Ruby version
+Please see the reviewOfCourse.rdoc for my full review. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In the current state, this end app has errors that I am not going to correct as it would take up time that I do not have to fix a problem I do not need to fix. :-) Basically the errors started when I began implementing the code to take credit cards through the company Stripe. The code being used by the teacher in the course may be outdated and thus that is why I am receiving errors. The errors occur because a token is not being received back from Stripe when a request for one is submitted. So, the request code is probabaly wrone in the controller files. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Building this app helped me in the following ways: 
+
+1) I learned how to setup a Ruby on Rails development environment.
+2) I learned basics of gems
+3) I learned how to create user accounts and listings and how to connect the two.
+4) I learned how to integrate Bootstrape for UI beauty. 
+5) I learned how to integrate with Git, Heroku, and Dropbox
+6) I learned a little bit about APIs and saw CoffeeScript in action (didn't really learn it)
+7) Probably more, but not coming to mind at the moment. 
